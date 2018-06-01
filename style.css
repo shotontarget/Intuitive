@@ -18,7 +18,7 @@
   z-index: 10;
 }
 
-#nav {
+#myTopnav {
   line-height: 24px;
   margin-top: 0px;
   background: #292f36;
@@ -27,7 +27,7 @@
   overflow: hidden;
 }
 
-#nav a {
+#myTopnav a {
   color: #a9abae;
   display: block;
   float: left;
@@ -36,15 +36,43 @@
   padding: 20px 16px;
 }
 
-#nav a:hover {
+#myTopnav a:hover {
   /*background-color: #000033;*/
   background-color: #ddd;
   color: black;
 }
 
-#nav a.active {
+#myTopnav a.active {
   background-color: #4CAF50;
   color: #ddd;
+}
+
+#myTopnav.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  #myTopnav.topnav a:not(:first-child) {display: none;}
+  #myTopnav.topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  #myTopnav.topnav.responsive {position: relative;}
+  #myTopnav.topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  #myTopnav.topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 .content {
@@ -117,7 +145,7 @@ BODY {
   margin-top: 30px;
 }
 
-#title+#nav-right {
+#title {
   line-height: 18px;
   float: right;
   text-decoration: none;
@@ -193,4 +221,13 @@ A:hover {
   text-transform: uppercase;
   font-size: 80%;
   color: grey;
+}
+
+#myTopnav a section {
+  color: #a9abae;
+  display: block;
+  float: left;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 16px;
 }
